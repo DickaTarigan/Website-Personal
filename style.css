@@ -1,0 +1,493 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+ 
+ body {
+     font-family: 'Quicksand', sans-serif;
+     background-color: #6a4c93;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     position: relative;
+ }
+ 
+ .book {
+     width: 60vw;
+     height: 80vh;
+     display: flex;
+     flex-direction: column;
+     position: relative;
+     z-index: 1; /* Pastikan konten berada di atas dekorasi */
+ }
+ 
+ .page {
+     width: 100%;
+     height: 100%;
+     display: none;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     background-color: #8a65b2;
+     border-radius: 15px;
+     transition: transform 1s;
+ }
+ 
+ .content {
+     text-align: center;
+     max-width: 90%;
+ }
+ 
+ h1, h2 {
+     font-family: 'Poppins', sans-serif;
+     margin-bottom: 20px;
+ }
+ 
+ p {
+     font-size: 18px;
+     line-height: 1.5;
+ }
+ 
+ button {
+     margin-top: 30px;
+     padding: 10px 20px;
+     font-size: 16px;
+     background-color: #f4e1e1;
+     color: #6a4c93;
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+ }
+ 
+ button:hover {
+     background-color: #e67e22;
+     color: white;
+ }
+ 
+ /* Halaman 1 - Kue */
+ #page1 .content h1 {
+     font-size: 3em;
+     color: #f4e1e1;
+ }
+ 
+ #page1 .cake {
+     position: relative;
+     width: 150px; /* Ukuran kue lebih besar */
+     height: 100px; /* Ukuran kue lebih besar */
+     margin: 20px auto; /* Menjaga kue tetap di tengah secara horizontal */
+     border-radius: 10px; /* Sudut melengkung */
+     background-color: #ff69b4; /* Warna dasar kue */
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Bayangan */
+ }
+ 
+ #page1 .cake-layer {
+     width: 100%;
+     height: 10px; /* Tinggi setiap lapisan */
+     border-radius: 5px; /* Sudut melengkung */
+     position: absolute;
+     left: 0;
+     right: 0;
+ }
+ 
+ #page1 .layer1 {
+     top: 30px; /* Posisi lapisan pertama */
+     background-color: #ff1493; /* Warna lapisan pertama */
+ }
+ 
+ #page1 .layer2 {
+     top: 20px; /* Posisi lapisan kedua */
+     background-color: #ff69b4; /* Warna lapisan kedua */
+ }
+ 
+ #page1 .layer3 {
+     top: 10px; /* Posisi lapisan ketiga */
+     background-color: #ff1493; /* Warna lapisan ketiga */
+ }
+ 
+ #page1 .candles {
+     position: absolute;
+     top: -15px; /* Posisi lilin di atas kue */
+     left: 50%;
+     transform: translateX(-50%);
+     display: flex;
+     justify-content: space-between;
+     width: 40%; /* Lebar area lilin */
+ }
+ 
+ #page1 .candle {
+     width: 5px; /* Lebar lilin */
+     height: 40px; /* Tinggi lilin */
+     background-color: #ffd700; /* Warna lilin */
+     position: relative;
+ }
+ 
+ #page1 .candle::after {
+     content: '';
+     position: absolute;
+     top: -5px; /* Posisi api di atas lilin */
+     left: 50%;
+     transform: translateX(-50%);
+     width: 8px; /* Lebar api */
+     height: 5px; /* Tinggi api */
+     background-color: #ff4500; /* Warna api */
+     border-radius: 50%; /* Bentuk bulat */
+ }
+ 
+ /* Halaman 4 - Bunga */
+ #page4 .flower {
+     position: relative;
+     width: 100%; /* Sesuaikan lebar untuk menjaga bunga tetap dalam batas */
+     height: auto;
+ }
+ 
+ #page4 .flower__glass {
+     width: 15vmin; /* Menyesuaikan ukuran untuk sesuai dengan skala */
+     height: 25vmin;
+     background-image: var(--color-glass);
+     clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+     opacity: .8;
+     position: relative;
+     margin: 0 auto;
+ }
+ 
+ #page4 .flower__glass::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     background-color: #182843;
+     width: 100%;
+     height: 1.5vmin;
+ }
+ 
+ #page4 .flower__glass::before {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     background-image: var(--color-water);
+     width: 100%;
+     height: 10vmin;
+ }
+ 
+ #page4 .f-wrapper {
+     position: absolute;
+     left: 50%;
+     bottom: 2vmin;
+     transform: translateX(-50%);
+ }
+ 
+ #page4 .f-wrapper--2 {
+     left: 55%;
+     bottom: 5%;
+     transform-origin: 10% left;
+     transform: rotate(20deg);
+ }
+ 
+ #page4 .f-wrapper--3 {
+     left: 45%;
+     bottom: 5%;
+     transform-origin: 10% left;
+     transform: rotate(-10deg);
+ }
+ 
+ #page4 .f-wrapper--3 .flower__line {
+     height: 30vmin;
+     position: relative;
+ }
+ 
+ #page4 .f-wrapper--3 .flower__line::after {
+     content: '';
+     position: absolute;
+     left: 0;
+     top: 0;
+     width: 5vmin;
+     height: 5vmin;
+     transform: translate(-69%, -30%) rotate(-5deg);
+     border-radius: 10vmin 10vmin 0 0;
+     border: 1.5vmin solid #104d4e;
+     border-bottom: transparent;
+     border-left: transparent;
+ }
+ 
+ #page4 .f-wrapper--3 .flower__line::before {
+     content: '';
+     position: absolute;
+     left: -40%;
+     top: -1%;
+     width: 5vmin;
+     height: 2vmin;
+     transform-origin: right;
+     transform: translate(-100%, -80%) rotate(-20deg);
+     background-color: #104d4e;
+     border-radius: 2vmin;
+ }
+ 
+ #page4 .f-wrapper--3 .flower__line {
+     background-image: linear-gradient(to top, #142544, #104d4e);
+ }
+ 
+ #page4 .f-wrapper--2 .flower__line {
+     height: 30vmin;
+ }
+ 
+ #page4 .f-wrapper--2 .f {
+     transform: translateX(-50%) rotate(20deg);
+ }
+ 
+ #page4 .f-wrapper--3 .f {
+     transform: translate(-300%, -50%) rotate(-120deg);
+ }
+ 
+ #page4 .f-wrapper--2 .flower__leaf:not(:first-child) {
+     width: 3.5vmin;
+     height: 8vmin;
+     background-image: linear-gradient(to bottom, #ff43b6, #c22887, #1a233a 99%);
+ }
+ 
+ #page4 .f-wrapper--3 .flower__leaf:not(:first-child) {
+     width: 3.5vmin;
+     height: 8vmin;
+     background-image: linear-gradient(to bottom, #ad2be0, #712291, #1a233a 99%);
+ }
+ 
+ #page4 .f-wrapper--3 .flower__leaf--1 {
+     width: 7vmin;
+     height: 8vmin;
+     bottom: 2vmin;
+     background-color: #ad2be0;
+ }
+ 
+ #page4 .f-wrapper--2 .flower__leaf--1 {
+     width: 7vmin;
+     height: 8vmin;
+     bottom: 2vmin;
+     background-color: #de118b;
+ }
+ 
+ #page4 .f-wrapper--2 .f .flower__leaf--8 {
+     width: 9vmin;
+     height: 8vmin;
+     bottom: 3vmin;
+     left: -25%;
+     transform: rotate(-50deg);
+     background-image: linear-gradient(to left bottom, #ff43b6, #4d1337);
+ }
+ 
+ #page4 .f-wrapper--3 .f .flower__leaf--8 {
+     width: 9vmin;
+     height: 8vmin;
+     left: -8% !important;
+     background-image: linear-gradient(to left bottom, #ad2be0, #712291);
+ }
+ 
+ #page4 .flower__line {
+     width: 1.5vmin;
+     height: 40vmin;
+     background-image: linear-gradient(to left top, #82fdff 20%, #142544, #104d4e);
+     border-radius: 4vmin;
+ }
+ 
+ #page4 .f {
+     position: absolute;
+     top: 1vmin;
+     left: 50%;
+     transform: translateX(-50%) rotate(-10deg);
+     width: 1.5vmin;
+     height: 1.5vmin;
+ }
+ 
+ #page4 .flower__leaf {
+     position: absolute;
+     left: 50%;
+     bottom: 2vmin;
+     transform: translateX(-50%);
+     width: 4vmin;
+     height: 12vmin;
+     background-image: linear-gradient(to bottom, #ffa085, #fa7373, #1a233a 99%);
+     clip-path: ellipse(50% 50% at 50% 50%);
+     transform-origin: center bottom;
+     animation: open-flower 2s 1s backwards;
+ }
+ 
+ #page4 .flower__leaf--1 {
+     width: 8vmin;
+     height: 10vmin;
+     bottom: 3vmin;
+     border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+     background-color: #e24f5f;
+     background-image: none;
+     animation: open-flowe--middle 1.4s 1s backwards;
+ }
+ 
+ #page4 .flower__leaf--2 {
+     transform: translateX(-50%) rotate(-30deg);
+ }
+ 
+ #page4 .flower__leaf--3 {
+     transform: translateX(-50%) rotate(-50deg);
+ }
+ 
+ #page4 .flower__leaf--4 {
+     transform: translateX(-50%) rotate(-70deg);
+ }
+ 
+ #page4 .flower__leaf--5 {
+     transform: translateX(-50%) rotate(30deg);
+ }
+ 
+ #page4 .flower__leaf--6 {
+     transform: translateX(-50%) rotate(50deg);
+ }
+ 
+ #page4 .flower__leaf--7 {
+     transform: translateX(-50%) rotate(70deg);
+ }
+ 
+ #page4 .flower__leaf--8 {
+     width: 11vmin;
+     height: 9vmin;
+     bottom: 5vmin;
+     left: -25%;
+     border-radius: none;
+     clip-path: none;
+     border-radius: 10vmin 2vmin 10vmin 2vmin;
+     transform: rotate(-55deg);
+     background-image: linear-gradient(to left bottom, #ffa085, #eb8b8b, #492f2f 98%);
+ }
+ 
+ #page4 .flower__fall-down--yellow {
+     animation: flower-fall-down-yellow 6s 1.2s linear forwards;
+ }
+ 
+ #page4 .flower__fall-down--pink {
+     animation: flower-fall-down-pink 5s 1.2s linear forwards;
+ }
+ 
+ #page4 .flower__fall-down--purple {
+     bottom: 4vmin;
+     animation: flower-fall-down-purple 6s 1.2s linear forwards, flower-falling 6s 7.2s linear infinite;
+ }
+ 
+ /* Animations */
+ @keyframes open-flower {
+     0% {
+         transform: translateX(-50%) rotate(0);
+     }
+ }
+ 
+ @keyframes open-flowe--middle {
+     0% {
+         opacity: 0;
+         transform: translateX(-50%) scale(0);
+     }
+ }
+ 
+ @keyframes flower-fall-down-pink {
+     0% {
+         transform: rotate(-55deg);
+     }
+     50% {
+         transform: rotateX(-100deg);
+     }
+     100% {
+         transform: translate(1vmin, 25vmin);
+     }
+ }
+ 
+ @keyframes flower-fall-down-yellow {
+     0% {
+         transform: rotate(-55deg);
+     }
+     50% {
+         bottom: 3vmin;
+         transform: rotateX(-100deg);
+     }
+     100% {
+         transform: translate(1vmin, 60vmin) rotate(150deg);
+     }
+ }
+ 
+ @keyframes flower-fall-down-purple {
+     0% {
+         transform: rotate(-50deg);
+     }
+     25% {
+         bottom: 1vmin;
+         transform: rotateX(-100deg);
+         perspective: 0px;
+     }
+     50% {
+         perspective: 0px;
+         transform: translate(-25vmin, 2vmin) rotate(90deg);
+     }
+     75% {
+         perspective: 0px;
+         transform: translate
+     } 
+ }
+ 
+ /* Hiasan Atas */
+ .decoration-top {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 60px;
+     background: linear-gradient(to right, #8a65b2, #6a4c93);
+     border-radius: 0 0 50% 50%;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+ }
+ 
+ .decoration-top::before {
+     content: '✨';
+     font-size: 3em;
+     position: absolute;
+     top: 10px;
+     left: 50%;
+     transform: translateX(-50%);
+     color: #f4e1e1;
+ }
+ 
+ .decoration-top::after {
+     content: '🎉';
+     font-size: 2em;
+     position: absolute;
+     bottom: 10px;
+     left: 10%;
+     color: #f4e1e1;
+ }
+ 
+ /* Hiasan Bawah */
+ .decoration-bottom {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 60px;
+     background: linear-gradient(to right, #8a65b2, #6a4c93);
+     border-radius: 50% 50% 0 0;
+     box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.4);
+ }
+ 
+ .decoration-bottom::before {
+     content: '🎂';
+     font-size: 3em;
+     position: absolute;
+     top: 10px;
+     right: 50%;
+     transform: translateX(50%);
+     color: #f4e1e1;
+ }
+ 
+ .decoration-bottom::after {
+     content: '🎉';
+     font-size: 2em;
+     position: absolute;
+     bottom: 15px;
+     right: 10%;
+     color: #f4e1e1;
+ }
+ 
